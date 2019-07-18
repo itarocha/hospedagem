@@ -25,6 +25,7 @@ public class SecurePersonController {
         persons.add(new Book("Livro Alfa"));
         persons.add(new Book("Livro Beta"));
         persons.add(new Book("Livro Gama"));
+        persons.add(new Book("Livro Epslon"));
     }
 
     @Post
