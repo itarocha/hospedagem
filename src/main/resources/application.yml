@@ -1,0 +1,59 @@
+micronaut:
+  application:
+    name: hospedagem
+
+  server:
+    port: 8088
+
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+      oauth:
+        enabled: true
+    token:
+      jwt:
+        enabled: true
+        generator:
+          access-token-expiration: 6048000
+        signatures:
+          secret:
+            generator:
+              secret: 'cGxlYXNlQ2hhbmdlVGhpc1NlY3JldEZvckFOZXdPbmU='
+              jws-algorithm: HS256
+              base64: true
+
+
+credentials:
+  users:
+    smith: smith123
+    scott: scott123
+    piomin: piomin123
+    test: test123
+  roles:
+    smith: ADMIN
+    scott: VIEW
+    piomin: VIEW
+    test: ADMIN
+
+datasources:
+  default:
+    url: jdbc:mysql://localhost/hospedagem
+    username: itamar
+    password: itamar123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+    dbCreate: create-update
+    maximumPoolSize: 15
+    minimumIdle: 5
+
+jpa:
+  default:
+    packages-to-scan:
+      - "br.com.itarocha.hospedagem.model"
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
+

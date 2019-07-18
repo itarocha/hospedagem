@@ -1,0 +1,55 @@
+    "username": "user",
+    "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwibmJmIjoxNTYzMjMwNzY1LCJyb2xlcyI6W10sImlzcyI6Im1uLXNlY3VyaXR5IiwiZXhwIjoxNTYzMjM0MzY1LCJpYXQiOjE1NjMyMzA3NjV9.HTGltRs6NWvYJI6dWSSKrgKpsd_LxD8cMgmCOfE11E8",
+    "refresh_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwibmJmIjoxNTYzMjMwNzY1LCJyb2xlcyI6W10sImlzcyI6Im1uLXNlY3VyaXR5IiwiaWF0IjoxNTYzMjMwNzY1fQ.QAYCDlPGkdXyRACjGbVyjA79I-oNqzhcXVedlqBOnc0",
+    "token_type": "Bearer",
+    "expires_in": 3600
+
+
+    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+datasources:
+  default:
+    url: jdbc:mysql://localhost/hospedagem
+    username: itamar
+    password: itamar123456
+    dbCreate: create-update
+    driverClassName: com.mysql.jdbc.Driver
+    maximumPoolSize: 15
+    minimumIdle: 5
+
+
+jasync:
+  client:
+    port: 3306
+    host: localhost
+    database: hospedagem
+    username: itamar
+    password: itamar123456
+    maxActiveConnections: 5
+
+
+datasources:
+  default:
+    name: 'hospedagem'
+    url: ${JDBC_URL:jdbc:mysql://localhost/hospedagem}
+    username: ${JDBC_USER:itamar}
+    password: ${JDBC_PASSWORD:itamar123456}
+    driverClassName: ${JDBC_DRIVER:org.hibernate.dialect.MySQL5InnoDBDialect}
+
+
+export _JDBC_URL=jdbc:mysql://localhost/hospedagem
+export _JDBC_USER=itamar
+export _JDBC_PASSWORD=itamar123456
+export _JDBC_DRIVER=org.hibernate.dialect.MySQL5InnoDBDialect
+
+
+curl -X "POST" "http://localhost:8089/login" -H 'Content-Type: application/json; charset=utf-8' -d '{"username":"smith","password":"smith123"}'
+{
+    "username": "smith",
+    "roles": [
+        "ADMIN"
+    ],
+    "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbWl0aCIsIm5iZiI6MTU1NjE5ODAyMCwicm9sZXMiOlsiQURNSU4iXSwiaXNzIjoic2FtcGxlLW1pY3JvbmF1dC1hcHBsaWNhdGlvbiIsImV4cCI6MTU1NjIwMTYyMCwiaWF0IjoxNTU2MTk4MDIwfQ.by0Dx73QIZeF4MDM4A5nHgw8xm4haPJjsu9z45psQrY",
+    "refresh_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzbWl0aCIsIm5iZiI6MTU1NjE5ODAyMCwicm9sZXMiOlsiQURNSU4iXSwiaXNzIjoic2FtcGxlLW1pY3JvbmF1dC1hcHBsaWNhdGlvbiIsImlhdCI6MTU1NjE5ODAyMH0.2BrdZzuvJNymZlOv56YpUPHYLDdnVAW5UXXNuz3a7xU",
+    "token_type": "Bearer",
+    "expires_in": 3600
+}

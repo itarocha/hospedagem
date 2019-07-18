@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: br.com.itarocha
+---
+testFramework: junit
+sourceLanguage: java
